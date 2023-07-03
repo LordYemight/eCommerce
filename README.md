@@ -11,19 +11,23 @@
     "repeat_password": "Dlare1234"
   }
   
-Log-in (localhost:5000/login) - POST
+- Log-in (localhost:5000/login) - `POST`
+  ```json
 {
   "email": "example@yahoo.com",
   "password": "Dlare1234"
 }
 
 
-Change Password (localhost:5000/changepassword) - POST
+- Change Password (localhost:5000/changepassword) - `POST`
+```json
 {
   "email": "example@yahoo.com",
   "newPassword": "newPassword123"
 }
-Upload Product (localhost:5000/product) - POST
+
+- Upload Product (localhost:5000/product) - `POST`
+```json
 {
   "name": "iPhone X",
   "price": 999.99,
@@ -31,13 +35,14 @@ Upload Product (localhost:5000/product) - POST
 }
 
 
-Get All Products - GET (localhost:5000/getproductAll)
+- sample ID = "64a2a2d24a8b92c27e621c1d"
+- Get All Products - `GET` (localhost:5000/getproductAll)
 
-Get a Particular Product - GET (localhost:5000/getproduct/:id)
+- Get a Particular Product - `GET` (localhost:5000/getproduct/:id)
 
-Update a Particular Product (Name, Price, and Description) - PUT (localhost:5000/product/:id)
+- Update a Particular Product (Name, Price, and Description) - `PUT` (localhost:5000/product/:id)
 
-Delete a Particular Product - DELETE (localhost:5000/product/:id)
+- Delete a Particular Product - `DELETE` (localhost:5000/product/:id)
 
 
 ### Sample Product Data
