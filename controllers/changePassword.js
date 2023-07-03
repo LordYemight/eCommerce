@@ -4,7 +4,7 @@ const verifyToken = require('../middlewares/verifyToken')
 const User = require('../models/user');
 
 
-// Change password route (requires authentication)
+
 const changePassword = (verifyToken, async (req, res) => {
   try {
     const { email, newPassword } = req.body;

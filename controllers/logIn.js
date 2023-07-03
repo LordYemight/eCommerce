@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const loginSchema  = require('../validation/logInVal'); // Assuming you have a login validation schema
+const loginSchema  = require('../validation/logInVal'); 
 const User = require('../models/user')
 
-// Login route
+
 const logIn = async (req, res) => {
   try {
     const { email, password } = req.body;
