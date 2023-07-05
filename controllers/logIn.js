@@ -2,19 +2,19 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const loginSchema  = require('../validation/logInVal'); 
 const User = require('../models/user')
-
+require('dotenv').config();
 
 const logIn = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Validate the user credentials using the login schema
+    // Validate the user
     const { error } = loginSchema.validate({ email, password });
     if (error) {
       return res.status(400).json({ error: error.details[0].message });
     }
 
-    // Code to find the user by email from your database
+    // find the user by email from database
     const user = await User.findOne({ email });
 
     // Check if the user exists
@@ -29,7 +29,7 @@ const logIn = async (req, res) => {
     }
 
     // If credentials are valid, generate a JWT token
-    const token = jwt.sign({ email }, 'your-secret-key');
+    const token = jwt.sign({ email }, process.env.SECRET_KEY);
 
     res.json({ token });
   } catch (error) {

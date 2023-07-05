@@ -7,13 +7,13 @@ const signUP = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
-      // Validate the signup data
+      // Validate signup data
     const { error } = signUpSchema.validate(req.body);
     if (error) {
       return res.status(400).json({ error: error.details[0].message });
     }
 
-    // Check if the user already exists
+    // Checks if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(409).json({ error: 'User already exists' });
@@ -22,7 +22,7 @@ const signUP = async (req, res) => {
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create a new user in the database
+    // Create new user in the database
     const newUser = new User({
       name,
       email,

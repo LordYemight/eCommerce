@@ -14,13 +14,13 @@ const changePassword = async (req, res) => {
       return res.status(400).json({ error: error.details[0].message });
     }
 
-    // update the user's password in the database
+    // update user's password in the database
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    // Hash the new password
+    // Hash new password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(newPassword, salt);
 
