@@ -14,7 +14,7 @@ const changePassword = async (req, res) => {
       return res.status(400).json({ error: error.details[0].message });
     }
 
-    // Code to update the user's password in the database
+    // update the user's password in the database
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
