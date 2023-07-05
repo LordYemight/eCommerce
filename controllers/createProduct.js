@@ -1,12 +1,11 @@
-const verifyToken = require('../middlewares/verifyToken');
 const Product = require('../models/product');
 const productSchema = require('../validation/createProductVal')
 
 
-const createProduct = (verifyToken, async (req, res) => {
+const createProduct = async (req, res) => {
   try {
     const { name, price, description } = req.body;
-    
+
     const { error } = productSchema.validate(req.body);
 
     if (error) {
@@ -26,6 +25,6 @@ const createProduct = (verifyToken, async (req, res) => {
     console.error('Error creating product:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
-});
+};
 
 module.exports = createProduct;

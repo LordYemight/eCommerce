@@ -1,7 +1,6 @@
-const verifyToken = require('../middlewares/verifyToken');
 const Product = require('../models/product');
 
-const getProduct =  (verifyToken, async (req, res) => {
+const getProduct =  async (req, res) => {
   try {
     const productId = req.params.id;
     
@@ -16,6 +15,6 @@ const getProduct =  (verifyToken, async (req, res) => {
     console.error('Error getting product:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
-});
+};
 
 module.exports = getProduct;

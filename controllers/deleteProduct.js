@@ -1,8 +1,8 @@
 const Product = require('../models/product');
-const verifyToken = require ('../middlewares/verifyToken');
 
 
-const deleteProduct = (verifyToken, async (req, res) => {
+
+const deleteProduct = async (req, res) => {
   try {
     const productId = req.params.id;
 
@@ -18,6 +18,6 @@ const deleteProduct = (verifyToken, async (req, res) => {
     console.error('Error deleting product:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
-});
+};
 
 module.exports = deleteProduct;

@@ -1,11 +1,10 @@
 const bcrypt = require('bcrypt');
 const changePasswordSchema = require('../validation/changePassVal');
-const verifyToken = require('../middlewares/verifyToken')
 const User = require('../models/user');
 
 
 
-const changePassword = (verifyToken, async (req, res) => {
+const changePassword = async (req, res) => {
   try {
     const { email, newPassword } = req.body;
 
@@ -34,7 +33,7 @@ const changePassword = (verifyToken, async (req, res) => {
     console.error('Error changing password:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
-});
+};
 
 
 module.exports = changePassword;

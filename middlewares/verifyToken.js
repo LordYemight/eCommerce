@@ -1,23 +1,14 @@
-const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 
 function verifyToken(req, res, next) {
-  const token = req.headers.authorization;
-
-  if (!token) {
-    return res.status(401).json({ error: 'Unauthorized' });
-  }
-
-  try {
-    const decoded = jwt.verify(token, 'your-secret-key');
-
-    // Store the decoded token in the request object
-    req.user = decoded;
-
+  const bearerHeader = req.headers['authorization'];
+  if (bearerHeader) {
+    const bearerToken = bearerHeader.split(' ')[1];
+    req.token = bearerToken;
     next();
-  } catch (error) {
-    console.error('Error verifying token:', error);
-    res.status(401).json({ error: 'Invalid token' });
+  } else {
+    res.status(403).json({ message: 'Forbidden' })
   }
 }
 
