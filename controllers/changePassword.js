@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const changePasswordSchema = require('../validation/changePassVal');
+const changePasswordSchema = require('../validators/changePassVal');
 const User = require('../models/user');
 
 

@@ -1,4 +1,4 @@
-const signUpSchema = require("../validation/signUpVal");
+const signUpSchema = require("../validators/signUpVal");
 const User = require("../models/user");
 const bcrypt = require('bcrypt');
 

@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const loginSchema  = require('../validation/logInVal'); 
+const loginSchema  = require('../validators/logInVal'); 
 const User = require('../models/user')
 require('dotenv').config();
 

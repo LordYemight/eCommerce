@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const router = require('./routes/routers')
-const mongoose = require('./models/db')
+const mongoose = require('./db/db')
 const port = 5000;
 
 app.use(express.json());

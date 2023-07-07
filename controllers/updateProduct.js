@@ -1,5 +1,4 @@
 const Product = require ('../models/product');
-const verifyToken = require('../middlewares/verifyToken');
 
 
 const updateProduct =  async (req, res) => {

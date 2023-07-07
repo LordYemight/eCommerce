@@ -1,5 +1,5 @@
 const Product = require('../models/product');
-const productSchema = require('../validation/createProductVal')
+const productSchema = require('../validators/createProductVal')
 
 
 const createProduct = async (req, res) => {
